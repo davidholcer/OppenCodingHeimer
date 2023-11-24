@@ -27,7 +27,7 @@ def return_k_words(news_keywords):
     if (len(news_keywords)<1 or news_keywords[0]=='' or not all(x.isalpha() for x in news_keywords) ):
         return False
     else:
-        return " OR ".join(news_keywords);
+        return ",".join(news_keywords);
 
 def fetch_news(news_keywords, from_date, to_date,api_key=API_KEY):
     # Get the current date
@@ -38,6 +38,8 @@ def fetch_news(news_keywords, from_date, to_date,api_key=API_KEY):
 
     #join the keywords by AND to pass them into the api
     k_words=return_k_words(news_keywords)
+
+    print(k_words)
 
     if (not (k_words)):
         return False
@@ -55,4 +57,4 @@ def fetch_news(news_keywords, from_date, to_date,api_key=API_KEY):
     return data
 
 if __name__ == "__main__":
-    fetch_news(API_KEY,["oppenheimer"],"2023-07-21","2023-08-21")
+    fetch_news(API_KEY,["oppenheimer","director"],"2023-07-21","2023-08-21")

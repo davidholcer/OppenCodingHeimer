@@ -19,6 +19,7 @@ parser.add_argument(
 
 args = parser.parse_args()
 print (args)
+keywords=args.keywords.split(",")
 
 def fix_path(file_path):
     if not os.path.isabs(file_path):
@@ -31,7 +32,9 @@ def fix_path(file_path):
 outputPath=fix_path(args.output)
 print(outputPath)
 
-articles=fetch_news([args.keywords],args.from_date,args.to_date)
+print(keywords)
+
+articles=fetch_news(keywords,args.from_date,args.to_date)
 
 outputF=outputPath
 with open(outputF,'w') as f:
