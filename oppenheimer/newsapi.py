@@ -19,7 +19,7 @@ with open(config_path, 'r') as config_file:
 API_KEY = config['api_key']
 
 # NEWS_QUERY_STRING_TEMPLATE="https://newsapi.org/v2/everything?q={}&from={}&to={}&sortBy=popularity&apiKey={}"
-NEWS_QUERY_STRING_TEMPLATE="http://api.mediastack.com/v1/news?access_key={}&keywords={}&date={},{}&languages=en&limit=100?sort=popularity"
+NEWS_QUERY_STRING_TEMPLATE="http://api.mediastack.com/v1/news?access_key={}&keywords={}&date={},{}&languages=en&limit=100?sort=popularity&categories=general,entertainment"
 
 OUTPUT_PATH=os.path.join(module_dir,'.',"output.json")
 
@@ -27,7 +27,7 @@ def return_k_words(news_keywords):
     if (len(news_keywords)<1 or news_keywords[0]=='' or not all(x.isalpha() for x in news_keywords) ):
         return False
     else:
-        return ",".join(news_keywords);
+        return ", ".join(news_keywords);
 
 def fetch_news(news_keywords, from_date, to_date,api_key=API_KEY):
     # Get the current date

@@ -1,5 +1,5 @@
 from argparse import ArgumentParser
-from newsapi import *
+from newsapi3 import *
 import json
 import os
 
@@ -7,12 +7,12 @@ parser = ArgumentParser()
 parser.add_argument(
     "-keywords", "--keywords", required=True, help="the keywords to search"
 )
-parser.add_argument(
-    "-f", "--from_date", required=True, help="the date to start at"
-)
-parser.add_argument(
-    "-t", "--to_date", required=True, help="the date to go up to"
-)
+# parser.add_argument(
+#     "-f", "--from_date", required=True, help="the date to start at"
+# )
+# parser.add_argument(
+#     "-t", "--to_date", required=True, help="the date to go up to"
+# )
 parser.add_argument(
     "-o", "--output", required=True, help="the output json file name"
 )
@@ -34,7 +34,7 @@ print(outputPath)
 
 print(keywords)
 
-articles=fetch_news(keywords,args.from_date,args.to_date)
+articles=fetch_news(keywords)
 
 outputF=outputPath
 with open(outputF,'w') as f:
