@@ -29,7 +29,7 @@ def return_k_words(news_keywords):
     else:
         return " OR ".join(news_keywords);
 
-def fetch_news(api_key, news_keywords, from_date, to_date):
+def fetch_news(news_keywords, from_date, to_date,api_key=API_KEY):
     # Get the current date
     # current_date = datetime.now()
     # new_date = (current_date - timedelta(days=lookback_days)).astimezone(pytz.utc)

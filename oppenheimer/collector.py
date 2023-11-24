@@ -5,9 +5,6 @@ import os
 
 parser = ArgumentParser()
 parser.add_argument(
-    "-k", "--api_key", required=True, help="the api key provided for newsapi.org"
-)
-parser.add_argument(
     "-keywords", "--keywords", required=True, help="the keywords to search"
 )
 parser.add_argument(
@@ -34,7 +31,7 @@ def fix_path(file_path):
 outputPath=fix_path(args.output)
 print(outputPath)
 
-articles=fetch_news(args.api_key,[args.keywords],args.from_date,args.to_date)
+articles=fetch_news([args.keywords],args.from_date,args.to_date)
 
 outputF=outputPath
 with open(outputF,'w') as f:
