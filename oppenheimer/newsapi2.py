@@ -50,6 +50,9 @@ def fetch_news(keywords):
 
     json_data = json.loads(data.decode('utf-8'))
 
+    with open('news5.json','w') as f:
+        json.dump(json_data,f,indent=4)
+
     return(json_data)
 
 

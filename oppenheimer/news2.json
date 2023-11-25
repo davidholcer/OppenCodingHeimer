@@ -1,1 +1,6 @@
-false
+{
+    "offset": 100,
+    "number": 100,
+    "available": 2,
+    "news": []
+}
