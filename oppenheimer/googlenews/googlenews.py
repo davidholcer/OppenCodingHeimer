@@ -15,6 +15,7 @@ def googlenews():
     google_news.language = 'english'
     google_news.start_date = (2023, 6, 21)
     google_news.end_date = (2023, 8, 21)
+    # google_news.get_news_by_topic('ENTERTAINMENT')
     oppenheimer_news = google_news.get_news(keywords)
     
     # print(len(oppenheimer_news))
